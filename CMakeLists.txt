@@ -4,6 +4,7 @@ project(zlibmt)
 
 set(CMAKE_CXX_STANDARD 17)
 find_package(ZLIB REQUIRED)
+find_package(Threads REQUIRED)
 
 set(SOURCES
   src/director.cpp
@@ -19,5 +20,5 @@ set(INCLUDES
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} src/main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE ZLIB::ZLIB)
+target_link_libraries(${PROJECT_NAME} PRIVATE ZLIB::ZLIB Threads::Threads)
 target_include_directories(${PROJECT_NAME} PRIVATE inc)
